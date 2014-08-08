@@ -404,7 +404,7 @@ func (t *TableMap) bindUpdate(elem reflect.Value) (bindInstance, error) {
 
 		for y := range t.Columns {
 			col := t.Columns[y]
-			if !col.isAutoIncr && !col.Transient {
+			if !col.isAutoIncr && !col.Transient && !col.ReadOnly {
 				if x > 0 {
 					s.WriteString(", ")
 				}
@@ -549,6 +549,10 @@ type ColumnMap struct {
 
 	// If true, this column is skipped in generated SQL statements
 	Transient bool
+
+	// If true, this column is skipped from "UPDATE" statement
+	//
+	ReadOnly bool
 
 	// If true, " unique" is added to create table statements.
 	// Not used elsewhere
