@@ -1,0 +1,4 @@
+origin	git@github.com:skyportsystems/gorp (fetch)
+origin	git@github.com:skyportsystems/gorp (push)
+upstream	https://github.com/go-gorp/gorp.git (fetch)
+upstream	https://github.com/go-gorp/gorp.git (push)
